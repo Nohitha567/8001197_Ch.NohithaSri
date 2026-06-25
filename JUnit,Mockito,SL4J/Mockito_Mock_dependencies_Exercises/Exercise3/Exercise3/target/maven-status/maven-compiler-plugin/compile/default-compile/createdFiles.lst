@@ -1,0 +1,3 @@
+com\example\client\WeatherApiClient.class
+com\example\entity\WeatherResponse.class
+com\example\service\WeatherService.class
