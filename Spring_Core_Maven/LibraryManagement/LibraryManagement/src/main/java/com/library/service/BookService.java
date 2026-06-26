@@ -1,19 +1,21 @@
 package com.library.service;
 
-import com.library.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.library.entity.Book;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class BookService {
 
-  @Autowired
-  private BookRepository repository;
 
   public void saveBook() {
 
-    repository.saveBook();
+    Book book = new Book("Spring Framework", "Rod Johnson");
 
-    System.out.println("Book Service Executed Successfully");
+    System.out.println("Saving Book...");
+    System.out.println("Title : " + book.getTitle());
+    System.out.println("Author : " + book.getAuthor());
+
+    System.out.println("Book Saved Successfully");
   }
 }
