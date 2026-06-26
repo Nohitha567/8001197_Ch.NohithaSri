@@ -3,7 +3,7 @@ package com.library.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "books")
+@Table(name = "BOOKS")
 public class Book {
 
   @Id
@@ -11,11 +11,9 @@ public class Book {
   private Long id;
 
   private String title;
-
   private String author;
 
-  public Book() {
-  }
+  public Book() {}
 
   public Book(String title, String author) {
     this.title = title;
@@ -32,10 +30,6 @@ public class Book {
 
   public String getAuthor() {
     return author;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
   }
 
   public void setTitle(String title) {

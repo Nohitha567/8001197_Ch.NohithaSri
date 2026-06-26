@@ -1,19 +1,29 @@
 package com.library;
 
-import com.library.service.BookService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.library.entity.Book;
+import com.library.util.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class LibraryManagementApplication {
 
   public static void main(String[] args) {
 
-    ApplicationContext context =
-      new ClassPathXmlApplicationContext("applicationContext.xml");
+    Session session =
+      HibernateUtil.getSessionFactory().openSession();
 
-    BookService service =
-      context.getBean(BookService.class);
+    Transaction transaction =
+      session.beginTransaction();
 
-    service.saveBook();
+    Book book =
+      new Book("Spring Core", "Rod Johnson");
+
+    session.save(book);
+
+    transaction.commit();
+
+    session.close();
+
+    System.out.println("Book Saved Successfully");
   }
 }
