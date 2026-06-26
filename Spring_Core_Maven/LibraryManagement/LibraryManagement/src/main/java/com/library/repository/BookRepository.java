@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BookRepository {
 
-  public void displayBook() {
-    System.out.println("Book Repository: Book details retrieved successfully.");
+  public void saveBook() {
+    System.out.println("Book saved successfully.");
   }
 }

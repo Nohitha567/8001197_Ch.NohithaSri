@@ -14,6 +14,6 @@ public class LibraryManagementApplication {
     BookService service =
       context.getBean(BookService.class);
 
-    service.showService();
+    service.saveBook();
   }
 }

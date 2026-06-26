@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 public class BookService {
 
   @Autowired
-  private BookRepository bookRepository;
+  private BookRepository repository;
 
-  public void showService() {
+  public void saveBook() {
 
-    System.out.println("Book Service is working...");
+    repository.saveBook();
 
-    bookRepository.displayBook();
+    System.out.println("Book Service Executed Successfully");
   }
 }
