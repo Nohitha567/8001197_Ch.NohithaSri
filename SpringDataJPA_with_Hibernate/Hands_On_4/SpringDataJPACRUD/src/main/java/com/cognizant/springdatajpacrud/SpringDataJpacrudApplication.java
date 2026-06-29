@@ -23,7 +23,14 @@ public class SpringDataJpacrudApplication implements CommandLineRunner {
 
     service.saveCountries();
 
+    service.testQueries();
+
+    service.testCustomQueries();
+
     service.testNativeQueries();
 
+    service.sortCountries();
+
+    service.paginateCountries();
   }
 }
