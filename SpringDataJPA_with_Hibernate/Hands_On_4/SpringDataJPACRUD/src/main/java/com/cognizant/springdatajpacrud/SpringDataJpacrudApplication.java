@@ -20,6 +20,10 @@ public class SpringDataJpacrudApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) {
-    service.saveCountry();
+
+    service.saveCountries();
+
+    service.testQueries();
+
   }
 }
