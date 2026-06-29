@@ -27,10 +27,10 @@ public class CountryService {
 
   public void testQueries() {
 
-    System.out.println(repository.findByName("India"));
+    System.out.println(CountryRepository.findByName("India"));
 
     List<Country> countries =
-      repository.findByNameContaining("a");
+      CountryRepository.findByNameContaining("a");
 
     countries.forEach(c ->
       System.out.println(c.getCode()+" "+c.getName()));
@@ -52,6 +52,26 @@ public class CountryService {
     System.out.println();
 
     System.out.println("Contains 'a'");
+
+    repository.searchCountry("a")
+      .forEach(System.out::println);
+  }
+  public void testNativeQueries() {
+
+    System.out.println("===== All Countries =====");
+
+    repository.getAllCountriesNative()
+      .forEach(System.out::println);
+
+    System.out.println();
+
+    System.out.println("===== Country By Code =====");
+
+    System.out.println(repository.getCountryByCode("IN"));
+
+    System.out.println();
+
+    System.out.println("===== Countries Containing 'a' =====");
 
     repository.searchCountry("a")
       .forEach(System.out::println);

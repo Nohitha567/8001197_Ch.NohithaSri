@@ -8,17 +8,12 @@ import java.util.List;
 
 public interface CountryRepository extends JpaRepository<Country, String> {
 
-  Country findByName(String name);
+  @Query(value = "SELECT * FROM country", nativeQuery = true)
+  List<Country> getAllCountriesNative();
 
-  List<Country> findByNameContaining(String keyword);
+  @Query(value = "SELECT * FROM country WHERE code=?1", nativeQuery = true)
+  Country getCountryByCode(String code);
 
-  @Query("SELECT c FROM Country c")
-  List<Country> getAllCountries();
-
-  @Query("SELECT c FROM Country c WHERE c.name='India'")
-  Country getIndia();
-
-  @Query("SELECT c FROM Country c WHERE c.name LIKE %?1%")
+  @Query(value = "SELECT * FROM country WHERE name LIKE %?1%", nativeQuery = true)
   List<Country> searchCountry(String keyword);
-
 }
