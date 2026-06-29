@@ -36,5 +36,25 @@ public class CountryService {
       System.out.println(c.getCode()+" "+c.getName()));
 
   }
+  public void testCustomQueries() {
+
+    System.out.println("All Countries");
+
+    repository.getAllCountries()
+      .forEach(System.out::println);
+
+    System.out.println();
+
+    System.out.println("India");
+
+    System.out.println(repository.getIndia());
+
+    System.out.println();
+
+    System.out.println("Contains 'a'");
+
+    repository.searchCountry("a")
+      .forEach(System.out::println);
+  }
 
 }
