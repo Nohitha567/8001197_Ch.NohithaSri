@@ -37,11 +37,11 @@ public class SpringLearnApplication {
 
       Date date = format.parse("31/12/2018");
 
-      LOGGER.info("Parsed Date : {}", date);
+      LOGGER.debug("Date : {}", date);
 
     } catch (Exception e) {
 
-      LOGGER.error("Error : ", e);
+      LOGGER.error("Exception occurred", e);
 
     }
 
