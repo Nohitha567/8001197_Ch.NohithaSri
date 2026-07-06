@@ -30,7 +30,12 @@ public class SpringLearnApplication {
 
     Country country = context.getBean("country", Country.class);
 
-    LOGGER.info("Country : {}", country);
+    Country anotherCountry = context.getBean("country", Country.class);
+
+    LOGGER.info("Country 1 : {}", country);
+    LOGGER.info("Country 2 : {}", anotherCountry);
+
+    LOGGER.info("Same Object : {}", country == anotherCountry);
 
     LOGGER.info("END");
   }
