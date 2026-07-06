@@ -25,8 +25,6 @@ public class CountryController {
 
   @GetMapping("/countries/{code}")
   public Country getCountry(@PathVariable String code) {
-
     return countryService.getCountry(code);
-
   }
 }
