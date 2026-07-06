@@ -1,14 +1,12 @@
 package com.cognizant.springlearn;
 
+import com.cognizant.springlearn.model.Country;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @SpringBootApplication
 public class SpringLearnApplication {
@@ -20,30 +18,19 @@ public class SpringLearnApplication {
 
     SpringApplication.run(SpringLearnApplication.class, args);
 
-    displayDate();
+    displayCountry();
   }
 
-  public static void displayDate() {
+  public static void displayCountry() {
 
     LOGGER.info("START");
 
-    try {
+    ApplicationContext context =
+      new ClassPathXmlApplicationContext("country.xml");
 
-      ApplicationContext context =
-        new ClassPathXmlApplicationContext("date-format.xml");
+    Country country = context.getBean("country", Country.class);
 
-      SimpleDateFormat format =
-        context.getBean("dateFormat", SimpleDateFormat.class);
-
-      Date date = format.parse("31/12/2018");
-
-      LOGGER.debug("Date : {}", date);
-
-    } catch (Exception e) {
-
-      LOGGER.error("Exception occurred", e);
-
-    }
+    LOGGER.info("Country : {}", country);
 
     LOGGER.info("END");
   }
