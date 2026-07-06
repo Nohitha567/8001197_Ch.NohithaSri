@@ -118,5 +118,14 @@
       </list>
     </constructor-arg>
   </bean>
+  <bean id="departmentList" class="java.util.ArrayList">
+    <constructor-arg>
+      <list>
+        <ref bean="dept1"/>
+        <ref bean="dept2"/>
+        <ref bean="dept3"/>
+      </list>
+    </constructor-arg>
+  </bean>
 
 </beans>
