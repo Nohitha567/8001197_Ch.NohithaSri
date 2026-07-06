@@ -1,7 +1,7 @@
 package com.cognizant.springlearn;
 
 import com.cognizant.springlearn.controller.CountryController;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,9 +25,7 @@ class SpringLearnApplicationTests {
 
   @Test
   void contextLoads() {
-
     assertNotNull(countryController);
-
   }
 
   @Test
@@ -37,12 +35,18 @@ class SpringLearnApplicationTests {
 
     actions.andExpect(status().isOk());
 
-    actions.andExpect(jsonPath("$.code").exists());
-
     actions.andExpect(jsonPath("$.code").value("IN"));
 
-    actions.andExpect(jsonPath("$.name").exists());
-
     actions.andExpect(jsonPath("$.name").value("India"));
+  }
+
+  @Test
+  void testGetCountryException() throws Exception {
+
+    ResultActions actions = mvc.perform(get("/countries/ABC"));
+
+    actions.andExpect(status().isNotFound());
+
+    actions.andExpect(status().reason("Country not found"));
   }
 }
