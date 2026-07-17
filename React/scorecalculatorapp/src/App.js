@@ -4,8 +4,8 @@ function App() {
     return (
         <div>
             <CalculateScore
-                Name="Steeve"
-                School="DNV Public School"
+                Name="Nohi"
+                School="JNVK"
                 total={284}
                 goal={3}
             />
