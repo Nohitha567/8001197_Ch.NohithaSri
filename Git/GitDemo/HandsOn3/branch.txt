@@ -1,0 +1,2 @@
+This file is created in GitNewBranch.
+It is used to demonstrate Git branching and merging.
